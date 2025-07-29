@@ -3,7 +3,7 @@ import { createConfig } from "ponder";
 import { DerolasStakingAbi } from "./abis/DerolasStakingAbi";
 
 export default createConfig({
-  chains: { base: { id: 8453, rpc: "http(process.env.PONDER_RPC_URL_8453)" } },
+  chains: { base: { id: 8453, rpc: "https://gateway.tenderly.co/public/base" } },
   contracts: {
     DerolasStaking: {
       abi: DerolasStakingAbi,
