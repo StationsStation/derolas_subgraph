@@ -1,0 +1,122 @@
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+scalar BigInt
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type Meta {
+  status: JSON
+}
+
+type Query {
+  donation(txnHash: String!): donation
+  donations(where: donationFilter, orderBy: String, orderDirection: String, before: String, after: String, limit: Int): donationPage!
+  balancerDonation(txnHash: String!): balancerDonation
+  balancerDonations(where: balancerDonationFilter, orderBy: String, orderDirection: String, before: String, after: String, limit: Int): balancerDonationPage!
+  _meta: Meta
+}
+
+type donation {
+  amount: BigInt
+  donatorAddress: String
+  timestamp: BigInt
+  txnHash: String!
+}
+
+type donationPage {
+  items: [donation!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+input donationFilter {
+  AND: [donationFilter]
+  OR: [donationFilter]
+  amount: BigInt
+  amount_not: BigInt
+  amount_in: [BigInt]
+  amount_not_in: [BigInt]
+  amount_gt: BigInt
+  amount_lt: BigInt
+  amount_gte: BigInt
+  amount_lte: BigInt
+  donatorAddress: String
+  donatorAddress_not: String
+  donatorAddress_in: [String]
+  donatorAddress_not_in: [String]
+  donatorAddress_contains: String
+  donatorAddress_not_contains: String
+  donatorAddress_starts_with: String
+  donatorAddress_ends_with: String
+  donatorAddress_not_starts_with: String
+  donatorAddress_not_ends_with: String
+  timestamp: BigInt
+  timestamp_not: BigInt
+  timestamp_in: [BigInt]
+  timestamp_not_in: [BigInt]
+  timestamp_gt: BigInt
+  timestamp_lt: BigInt
+  timestamp_gte: BigInt
+  timestamp_lte: BigInt
+  txnHash: String
+  txnHash_not: String
+  txnHash_in: [String]
+  txnHash_not_in: [String]
+  txnHash_contains: String
+  txnHash_not_contains: String
+  txnHash_starts_with: String
+  txnHash_ends_with: String
+  txnHash_not_starts_with: String
+  txnHash_not_ends_with: String
+}
+
+type balancerDonation {
+  amount: BigInt
+  timestamp: BigInt
+  txnHash: String!
+}
+
+type balancerDonationPage {
+  items: [balancerDonation!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+input balancerDonationFilter {
+  AND: [balancerDonationFilter]
+  OR: [balancerDonationFilter]
+  amount: BigInt
+  amount_not: BigInt
+  amount_in: [BigInt]
+  amount_not_in: [BigInt]
+  amount_gt: BigInt
+  amount_lt: BigInt
+  amount_gte: BigInt
+  amount_lte: BigInt
+  timestamp: BigInt
+  timestamp_not: BigInt
+  timestamp_in: [BigInt]
+  timestamp_not_in: [BigInt]
+  timestamp_gt: BigInt
+  timestamp_lt: BigInt
+  timestamp_gte: BigInt
+  timestamp_lte: BigInt
+  txnHash: String
+  txnHash_not: String
+  txnHash_in: [String]
+  txnHash_not_in: [String]
+  txnHash_contains: String
+  txnHash_not_contains: String
+  txnHash_starts_with: String
+  txnHash_ends_with: String
+  txnHash_not_starts_with: String
+  txnHash_not_ends_with: String
+}
