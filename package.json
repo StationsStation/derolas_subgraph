@@ -28,7 +28,7 @@
     "prettier": "^3.6.2",
     "release-it": "^19.0.4",
     "typescript": "^5.9.2",
-    "vite": "^5.4.19"
+    "vite": "^7.0.6"
   },
   "engines": {
     "node": ">=18.14"
