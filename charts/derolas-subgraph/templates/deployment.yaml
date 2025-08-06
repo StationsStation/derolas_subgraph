@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "derolas_subgraph.fullname" . }}
+  name: {{ include "derolas-subgraph.fullname" . }}
   labels:
-    {{- include "derolas_subgraph.labels" . | nindent 4 }}
+    {{- include "derolas-subgraph.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "derolas_subgraph.selectorLabels" . | nindent 6 }}
+      {{- include "derolas-subgraph.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,7 +18,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "derolas_subgraph.labels" . | nindent 8 }}
+        {{- include "derolas-subgraph.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -27,7 +27,7 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "derolas_subgraph.serviceAccountName" . }}
+      serviceAccountName: {{ include "derolas-subgraph.serviceAccountName" . }}
       {{- with .Values.podSecurityContext }}
       securityContext:
         {{- toYaml . | nindent 8 }}

@@ -2,14 +2,14 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "derolas_subgraph.fullname" . }}
+  name: {{ include "derolas-subgraph.fullname" . }}
   labels:
-    {{- include "derolas_subgraph.labels" . | nindent 4 }}
+    {{- include "derolas-subgraph.labels" . | nindent 4 }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ include "derolas_subgraph.fullname" . }}
+    name: {{ include "derolas-subgraph.fullname" . }}
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:

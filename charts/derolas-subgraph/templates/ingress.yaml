@@ -2,9 +2,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ include "derolas_subgraph.fullname" . }}
+  name: {{ include "derolas-subgraph.fullname" . }}
   labels:
-    {{- include "derolas_subgraph.labels" . | nindent 4 }}
+    {{- include "derolas-subgraph.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
@@ -35,7 +35,7 @@ spec:
             {{- end }}
             backend:
               service:
-                name: {{ include "derolas_subgraph.fullname" $ }}
+                name: {{ include "derolas-subgraph.fullname" $ }}
                 port:
                   number: {{ $.Values.service.port }}
           {{- end }}
