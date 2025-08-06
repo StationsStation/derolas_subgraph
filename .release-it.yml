@@ -14,9 +14,12 @@ npm:
 plugins:
   "@release-it/bumper":
     out:
-      file: ".github/workflows/release.yaml"
-      type: text/yaml
-      path: jobs.build-docker.env.RELEASE_VERSION
+      - file: ".github/workflows/release.yaml"
+        type: text/yaml
+        path: jobs.build-docker.env.RELEASE_VERSION
+      - file: "charts/derolas-subgraph/Chart.yaml"
+        type: text/yaml
+        path: appVersion
 
 hooks:
-  after:bump: "sed -i \"s/'/\\\"/g\" .github/workflows/release.yaml"
+  after:bump: "sed -i \"s/'/\\\"/g\" .github/workflows/release.yaml charts/derolas-subgraph/Chart.yaml"
