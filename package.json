@@ -1,0 +1,36 @@
+{
+  "name": "derolas_graph",
+  "version": "0.0.17",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "ponder dev",
+    "start": "ponder start",
+    "db": "ponder db",
+    "codegen": "ponder codegen",
+    "lint": "eslint . --ext .js,.ts,.tsx --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc",
+    "abi:gen": "printf 'export const DerolasAuctionAbi = ' > abis/DerolasAuctionAbi.ts && jq '.abi' abis/DerolasAuction.json | awk 'NR==1{print} NR>1{printf \"%s%s\", sep, $0; sep=ORS} END{printf \" as const;\\n\"}' >> abis/DerolasAuctionAbi.ts",
+    "release": "release-it --ci"
+  },
+  "dependencies": {
+    "hono": "^4.8.12",
+    "ponder": "^0.12",
+    "viem": "^2.33.2"
+  },
+  "devDependencies": {
+    "@release-it/bumper": "^7.0.5",
+    "@types/node": "^24.2.0",
+    "eslint": "^8",
+    "eslint-config-ponder": "^0.12.0",
+    "prettier": "^3.6.2",
+    "release-it": "^19.0.4",
+    "typescript": "^5.9.2",
+    "vite": "^7.0.6"
+  },
+  "engines": {
+    "node": ">=18.14"
+  }
+}

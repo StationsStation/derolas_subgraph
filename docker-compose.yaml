@@ -1,0 +1,27 @@
+services:
+  ponder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgres://ponder:ponder@postgres:5432/ponder
+      # Add any other environment variables your ponder.config.ts expects
+    depends_on:
+      - postgres
+    ports:
+      - "42069:42069"
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ponder
+      POSTGRES_PASSWORD: ponder
+      POSTGRES_DB: ponder
+    volumes:
+      - ponder_pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  ponder_pgdata:
