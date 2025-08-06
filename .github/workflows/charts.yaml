@@ -43,8 +43,8 @@ jobs:
 
       - name: Update index.yaml
         run: |
-          helm repo index charts --url https://stationsstaion.github.io/derolas_subgraph/charts --merge charts/index.yaml || \
-          helm repo index charts --url https://stationsstaion.github.io/derolas_subgraph/charts
+          helm repo index charts --url https://stationsstation.github.io/derolas_subgraph/charts --merge charts/index.yaml || \
+          helm repo index charts --url https://stationsstation.github.io/derolas_subgraph/charts
 
       - name: Commit and push
         run: |
