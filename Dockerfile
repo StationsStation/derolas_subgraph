@@ -1,6 +1,7 @@
 FROM node:20-alpine
 
-RUN apk add --no-cache python3 make g++ libc6-compat
+# Update apk to ensure latest security patches
+RUN apk update && apk upgrade && apk add --no-cache libc6-compat
 
 WORKDIR /app
 

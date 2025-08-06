@@ -10,6 +10,7 @@
     "codegen": "ponder codegen",
     "lint": "eslint . --ext .js,.ts,.tsx --fix",
     "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "typecheck": "tsc",
     "abi:gen": "printf 'export const DerolasAuctionAbi = ' > abis/DerolasAuctionAbi.ts && jq '.abi' abis/DerolasAuction.json | awk 'NR==1{print} NR>1{printf \"%s%s\", sep, $0; sep=ORS} END{printf \" as const;\\n\"}' >> abis/DerolasAuctionAbi.ts"
   },
