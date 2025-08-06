@@ -6,6 +6,8 @@ on:
       - main # Change to your default branch
     paths:
       - "charts/**"
+permissions:
+  contents: write
 
 jobs:
   release:
