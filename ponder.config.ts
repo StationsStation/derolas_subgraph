@@ -1,13 +1,14 @@
 import { createConfig } from "ponder";
 
-import { DerolasStakingAbi } from "./abis/DerolasStakingAbi";
+import { DerolasAuctionAbi } from "./abis/DerolasAuctionAbi";
+import DerolasAuction from "./abis/DerolasAuction.json";
 
 export default createConfig({
   chains: { base: { id: 8453, rpc: "https://gateway.tenderly.co/public/base" } },
   contracts: {
-    DerolasStaking: {
-      abi: DerolasStakingAbi,
-      address: "0x35CAf83118d58504C179b50D538a095ac08Ebc8f",
+    DerolasAuction: {
+      abi: DerolasAuctionAbi,
+      address: DerolasAuction.address as '0x${string}',
       chain: "base",
       startBlock: 31682991,
     },
