@@ -1,5 +1,5 @@
 import { ponder } from "ponder:registry";
-import { donation, balancerDonation } from "ponder:schema";
+import { donation, balancerDonation, claims} from "ponder:schema";
 
 ponder.on("DerolasAuction:AuctionEnded", async ({ event, context }) => {
   // console.log("Auction ended.");
@@ -32,4 +32,17 @@ ponder.on("DerolasAuction:EthDonatedToBalancer", async ({ event, context }) => {
 ponder.on("DerolasAuction:OwnerUpdated", async ({ event, context }) => {
   console.log("Ownership transferred.");
   console.log(event.args);
+});
+
+ponder.on("DerolasAuction:RewardsClaimed", async ({ event, context }) => {
+  console.log("Rewards claimed.");
+  console.log(event.args);
+  await context.db
+    .insert(claims)
+    .values({ 
+      claimerAddress: event.args.donatorAddress,
+      amount: event.args.amount,
+      timestamp: event.block.timestamp,
+      txnHash: event.transaction.hash
+    });
 });
