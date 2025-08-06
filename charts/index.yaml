@@ -3,9 +3,9 @@ entries:
   derolas-subgraph:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2025-08-06T15:26:28.088331385Z"
+    created: "2025-08-06T15:43:21.33919237Z"
     description: A Helm chart for Kubernetes
-    digest: 32dd59c584015265de4265a27a2f7989718566def3c5dc2fcfd288296deea5b8
+    digest: d1bcea03271aab86f6e22e9aec9dcf7c60cecf6bbb111d4aa038989ca0849952
     name: derolas-subgraph
     type: application
     urls:
@@ -14,7 +14,7 @@ entries:
   derolas_subgraph:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2025-08-06T15:26:28.088746676Z"
+    created: "2025-08-06T15:43:21.339600154Z"
     description: A Helm chart for Kubernetes
     digest: c4167f7dbb2c490d16701fe402bc6ca7e1e85242b5f91c59cb0564f311388025
     name: derolas_subgraph
@@ -22,4 +22,4 @@ entries:
     urls:
     - https://stationsstation.github.io/derolas_subgraph/charts/derolas_subgraph-0.1.0.tgz
     version: 0.1.0
-generated: "2025-08-06T15:26:28.087792973Z"
+generated: "2025-08-06T15:43:21.33859908Z"
