@@ -12,7 +12,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "typecheck": "tsc",
-    "abi:gen": "printf 'export const DerolasAuctionAbi = ' > abis/DerolasAuctionAbi.ts && jq '.abi' abis/DerolasAuction.json | awk 'NR==1{print} NR>1{printf \"%s%s\", sep, $0; sep=ORS} END{printf \" as const;\\n\"}' >> abis/DerolasAuctionAbi.ts"
+    "abi:gen": "printf 'export const DerolasAuctionAbi = ' > abis/DerolasAuctionAbi.ts && jq '.abi' abis/DerolasAuction.json | awk 'NR==1{print} NR>1{printf \"%s%s\", sep, $0; sep=ORS} END{printf \" as const;\\n\"}' >> abis/DerolasAuctionAbi.ts",
+    "release": "release-it"
   },
   "dependencies": {
     "hono": "^4.5.0",
@@ -22,8 +23,9 @@
   "devDependencies": {
     "@types/node": "^20.9.0",
     "eslint": "^8.53.0",
-    "prettier": "^3.6.2",
     "eslint-config-ponder": "^0.11.20",
+    "prettier": "^3.6.2",
+    "release-it": "^19.0.4",
     "typescript": "^5.2.2"
   },
   "engines": {
