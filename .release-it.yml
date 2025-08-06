@@ -19,5 +19,5 @@ plugins:
       path: jobs.build-docker.env.RELEASE_VERSION
 
 hooks:
-  after:bump: "after:bump": "sed -i \"s/'/\\\"/g\" .github/workflows/release.yaml"
+  after:bump: "sed -i \"s/'/\\\"/g\" .github/workflows/release.yaml"
 
