@@ -11,9 +11,9 @@ codegen:
 	npm run abi:gen
 
 release: all
-	ifndef GITHUB_TOKEN
-		$(error GITHUB_TOKEN is not set)
-	endif
+ifndef GITHUB_TOKEN
+	$(error GITHUB_TOKEN is not set)
+endif
 	npm run release
 
 
