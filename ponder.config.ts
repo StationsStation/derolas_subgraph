@@ -10,7 +10,7 @@ export default createConfig({
       abi: DerolasAuctionAbi,
       address: DerolasAuction.address as '0x${string}',
       chain: "base",
-      startBlock: 31682991,
+      startBlock: 33157264,
     },
   },
 });

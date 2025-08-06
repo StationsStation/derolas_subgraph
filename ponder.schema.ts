@@ -15,7 +15,7 @@ export const balancerDonation = onchainTable("balancer_donations", (t) => ({
   txnHash: t.text().primaryKey(),
 }));
 
-export const claims = onchainTable("claims", (t) => ({
+export const claim = onchainTable("claims", (t) => ({
   claimerAddress: t.text(),
   amount: t.bigint(),
   timestamp: t.bigint(),

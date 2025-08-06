@@ -1,5 +1,5 @@
 import { ponder } from "ponder:registry";
-import { donation, balancerDonation, claims} from "ponder:schema";
+import { donation, balancerDonation, claim} from "ponder:schema";
 
 ponder.on("DerolasAuction:AuctionEnded", async ({ event, context }) => {
   // console.log("Auction ended.");
@@ -38,7 +38,7 @@ ponder.on("DerolasAuction:RewardsClaimed", async ({ event, context }) => {
   console.log("Rewards claimed.");
   console.log(event.args);
   await context.db
-    .insert(claims)
+    .insert(claim)
     .values({ 
       claimerAddress: event.args.donatorAddress,
       amount: event.args.amount,
