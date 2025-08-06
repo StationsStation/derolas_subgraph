@@ -1,5 +1,6 @@
 github:
   release: true
+  autoGenerate: true
 
 git:
   commit: true
