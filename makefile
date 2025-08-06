@@ -11,9 +11,8 @@ codegen:
 	npm run abi:gen
 
 release: all
-	# check that the GH_TOKEN is set
-	ifndef GH_TOKEN
-		$(error GH_TOKEN is not set)
+	ifndef GITHUB_TOKEN
+		$(error GITHUB_TOKEN is not set)
 	endif
 	npm run release
 
