@@ -1,5 +1,8 @@
 # Dependencies
 /node_modules
+/charts
+/.github
+/.git
 
 # Debug
 npm-debug.log*
