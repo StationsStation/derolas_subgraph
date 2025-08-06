@@ -10,3 +10,11 @@ git:
 
 npm:
   publish: false
+
+
+plugins:
+  "@release-it/bumper":
+    out:
+      file: ".github/workflows/release.yaml"
+      type: text/yaml
+      path: jobs.build-docker.env.RELEASE_VERSION
