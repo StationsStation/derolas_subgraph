@@ -1,20 +1,22 @@
 FROM node:22-alpine
 
-# Update apk to ensure latest security patches
-RUN apk update && apk upgrade && apk add --no-cache libc6-compat
-
 WORKDIR /app
 
-ENV NODE_ENV=production
+RUN apk add --no-cache libc6-compat
 
-# Install dependencies
-COPY package.json package-lock.json* ./
-RUN npm install --omit=dev
+COPY package*.json ./
+RUN npm ci --omit=dev
 
-# Copy source code
+# Copy source
 COPY . .
 
-EXPOSE 42069
+RUN chown -R node:node /app
+
+USER node
+
+ENV NODE_ENV=production
 ENV DATABASE_SCHEMA=derolas_subgraph
+
+EXPOSE 42069
 
 CMD ["npm", "run", "start"]
