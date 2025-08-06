@@ -8,7 +8,6 @@ export const donation = onchainTable("donations", (t) => ({
   txnHash: t.text().primaryKey(),
 }));
 
-
 export const balancerDonation = onchainTable("balancer_donations", (t) => ({
   amount: t.bigint(),
   timestamp: t.bigint(),
